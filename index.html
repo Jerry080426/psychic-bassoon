@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#070A10" />
+  <title>带一束光回家 · 一个三分钟的夜行</title>
+  <meta name="description" content="从关系地图延伸出的一个交互小游戏。走近三段关系，带回三束光，再回到中心。" />
+  <link rel="stylesheet" href="styles.css?v=1" />
+</head>
+<body>
+  <div id="game">
+    <canvas id="sky" aria-hidden="true"></canvas>
+    <div class="vignette" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
+
+    <header id="hud" class="hud">
+      <div class="brand">
+        <p class="eyebrow">A SMALL NIGHT WALK</p>
+        <h1>带一束光回家</h1>
+      </div>
+      <div class="score" aria-live="polite">
+        <span id="lightsCount">0</span>
+        <span class="score-total">/ 3 束光</span>
+        <span id="dots" class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+      </div>
+    </header>
+
+    <div id="hint" class="hint">WASD / 方向键移动 · 靠近后按住空格</div>
+
+    <button id="stayBtn" class="stay-btn" type="button" aria-label="按住停留">
+      <span class="stay-ring" aria-hidden="true"></span>
+      <span id="stayLabel">按住停留</span>
+    </button>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </div>
+
+  <div id="start" class="overlay start">
+    <div class="start-inner">
+      <p class="eyebrow">A SMALL NIGHT WALK</p>
+      <h1>带一束光回家</h1>
+      <p class="start-lede">五段关系在黑暗里发光。<br />走近三个人，带回三束光，<br />再回到中心。</p>
+      <div class="how">
+        <p><b>电脑</b> WASD / 方向键移动 · 靠近后按住空格</p>
+        <p><b>手机</b> 点按节点靠近 · 按住「停留」</p>
+      </div>
+      <button id="startBtn" class="btn primary" type="button">开始夜行</button>
+      <p class="start-note">约 3 分钟 · 没有失败 · 只有选择</p>
+    </div>
+  </div>
+
+  <div id="card" class="overlay card" hidden>
+    <div class="card-panel">
+      <p class="card-kicker" id="cardKicker"></p>
+      <p class="card-line" id="cardLine"></p>
+      <div class="card-object">
+        <span id="cardGlyph" class="card-glyph" aria-hidden="true"></span>
+        <span id="cardObject"></span>
+      </div>
+      <button id="cardBtn" class="btn primary" type="button">收下这束光</button>
+    </div>
+  </div>
+
+  <div id="end" class="overlay end" hidden>
+    <div class="end-inner">
+      <p class="eyebrow">THE CENTER IS LIT</p>
+      <h1>你带回了三束光</h1>
+      <p class="end-list" id="endList"></p>
+      <p class="end-line">剩下的两段关系，还在原地。</p>
+      <p class="end-quote">关系不是答案，是一条还在走的路。</p>
+      <button id="restartBtn" class="btn primary" type="button">再走一次</button>
+    </div>
+  </div>
+
+  <script src="game.js?v=1"></script>
+</body>
+</html>
